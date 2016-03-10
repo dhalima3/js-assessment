@@ -2,25 +2,43 @@ exports = (typeof window === 'undefined') ? global : window;
 
 exports.arraysAnswers = {
 
-  indexOf : function(arr, item) {
-      for (var i = 0; i < arr.length; i++) {
-          if (arr[i] == item) {
-              return i;
-          }
+  indexOf: function (arr, item) {
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] == item) {
+        return i;
       }
-      return -1;
+    }
+    return -1;
   },
 
-  sum : function(arr) {
-
+  sum: function (arr) {
+    var sum = 0;
+    for (var i = 0; i < arr.length; i++) {
+      sum += arr[i];
+    }
+    return sum;
   },
 
-  remove : function(arr, item) {
-
+  remove: function (arr, item) {
+    var ans = [];
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] !== item) {
+        ans.push(arr[i]);
+      }
+    }
+    return ans;
   },
 
-  removeWithoutCopy : function(arr, item) {
-
+  removeWithoutCopy: function (arr, item) {
+    var len = arr.length;
+    for (var i = 0; i < len; i++) {
+      if (arr[i] === item) {
+        arr.splice(i, 1);
+        i--;
+        len--;
+      }
+    }
+    return arr;
   },
 
   append : function(arr, item) {
